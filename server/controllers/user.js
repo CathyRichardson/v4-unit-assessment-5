@@ -3,6 +3,9 @@ const bcrypt = require('bcryptjs');
 
 const register = async (req, res) => {
     const { username, password } = req.body;
+    if (!username || !password) {
+        return res.status(400).send('Missing username or password');
+    }
     const profile_pic = `https://robohash.org/${username}.png`;
     const db = req.app.get('db');
     const result = await db.user.find_user_by_username(username);

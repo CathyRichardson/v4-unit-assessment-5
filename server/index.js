@@ -37,9 +37,9 @@ app.get('/api/auth/me', userCtrl.usersOnly, userCtrl.getUser);
 app.post('/api/auth/logout', userCtrl.logout);
 
 //Post Endpoints
-// app.get('/api/posts', postCtrl.readPosts);
-// app.post('/api/post', postCtrl.createPost);
-// app.get('/api/post/:id', postCtrl.readPost);
-// app.delete('/api/post/:id', postCtrl.deletePost)
+app.get('/api/posts', postCtrl.readPosts);
+app.post('/api/post', postCtrl.createPost);
+app.get('/api/post/:id', postCtrl.readPost);
+app.delete('/api/post/:id', postCtrl.deletePost)
 
 app.listen(SERVER_PORT, () => console.log(`running on ${SERVER_PORT}`));
