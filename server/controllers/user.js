@@ -34,7 +34,7 @@ const login = async (req, res) => {
         return res.status(403).send('Incorrect password');
     }
     req.session.user = { username: user.username, id: user.id, profile_pic: user.profile_pic };
-    return res.send(req.session.user);
+    return res.status(200).send(req.session.user);
 }
 
 const logout = (req, res) => {

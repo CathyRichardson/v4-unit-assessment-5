@@ -39,14 +39,14 @@ module.exports = {
   },
   createPost: (req, res) => {
     //code here
-    db = req.app.get('db');
-    const { user } = req.session;
+    const db = req.app.get('db');
+    const { id } = req.session.user;
     const { title, img, content } = req.body;
     const date = new Date; // This uses the built in JavaScript Date object to get the current date and time and converts them to a format that our database can read
-    if (user && user.id) {
-      console.log(user)
-      db.post.create_post(user.id, title, img, content, date)
-        .then(() => res.sendStatus(200));
+    if (id) {
+      db.post.create_post(id, title, img, content, date)
+        .then(() => res.sendStatus(200))
+        .catch(err => console.log(err));
     } else {
       res.sendStatus(403);
     }
