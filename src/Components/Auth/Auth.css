@@ -71,3 +71,10 @@
     justify-content: space-around;
     width: 55%;
   }
+
+  @media (max-width: 400px) {
+    .auth-container {
+      width: 100vw;
+      height: 100vh;
+    }
+}

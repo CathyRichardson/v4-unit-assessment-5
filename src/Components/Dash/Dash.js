@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './Dash.css';
 
 class Dash extends Component {
@@ -25,7 +26,7 @@ class Dash extends Component {
 
   grabPosts() {
     let { search, myPosts, oldestFirst } = this.state;
-    let url = '/api/posts';
+    let url = `api/posts?post=${this.props.match.params.post}`; ///students?class=${this.props.match.params.class}
     if (myPosts && !search) {
       oldestFirst ? url += '?mine=true&oldest=true' : url += '?mine=true';
     } else if (!myPosts && search) {
@@ -65,7 +66,7 @@ class Dash extends Component {
 
     let mappedPosts = posts.map(post => {
       return <div className='content-box dash-post-box' key={post.post_id}>
-          <h3>{post.title}</h3>
+          <Link to={`/post/${post.id}`}> <h3>{post.title}</h3> </Link>
           {
             post.author_username === this.props.username 
             ?
