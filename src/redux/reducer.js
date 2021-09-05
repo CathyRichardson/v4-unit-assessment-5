@@ -1,4 +1,3 @@
-import axios from "axios";
 
 const initialState = {
     username: null,
@@ -7,12 +6,16 @@ const initialState = {
 
 
 const UPDATE_USER = 'UPDATE_USER'
-const LOGOUT_USER = 'UPDATE_USER'
+const LOGOUT_USER = 'LOGOUT_USER'
 
 export function updateUser(user) {
+    const { username, profile_pic } = user;
     return {
         type: UPDATE_USER,
-        payload: user
+        payload: {
+            username: username,
+            profilePic: profile_pic
+        }
     }
 }
 
@@ -25,14 +28,14 @@ export function logout() {
 export default function reducer(state = initialState, action) {
 
     switch (action.type) {
-        case UPDATE_USER + '_FULFILLED': {
-            const { username, profilePic } = action.payload.user;
+        case UPDATE_USER: {
+            const { username, profilePic } = action.payload;
             return {
                 username,
                 profilePic
             }
         }
-        case LOGOUT_USER + '_FULFILLED': {
+        case LOGOUT_USER: {
             return initialState;
         }
         default: return state;

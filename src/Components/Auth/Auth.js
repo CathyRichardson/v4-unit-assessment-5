@@ -32,7 +32,7 @@ class Auth extends Component {
       })
       .catch(err => {
         console.log(err)
-        this.setState({errorMsg: 'Incorrect username or password!'})
+        this.setState({ errorMsg: 'Incorrect username or password!' })
       })
   }
 
@@ -45,14 +45,14 @@ class Auth extends Component {
       })
       .catch(err => {
         console.log(err)
-        this.setState({errorMsg: 'Username taken!'})
+        this.setState({ errorMsg: 'Username taken!' })
       })
   }
 
   closeErrorMessage = () => {
     this.setState({
-      errorMsg: false, 
-      username: '', 
+      errorMsg: false,
+      username: '',
       password: ''
     })
   }

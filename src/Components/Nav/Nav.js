@@ -36,7 +36,7 @@ class Nav extends Component {
     return this.props.location.pathname !== '/' &&
       <div className='nav'>
         <div className='nav-profile-container'>
-          <div className='nav-profile-pic' style={{backgroundImage: `url('${profilePic}')`}}></div>
+          <div className='nav-profile-pic' style={{ backgroundImage: `url('${profilePic}')` }}></div>
           <p>{username}</p>
         </div>
         <div className='nav-links'>
